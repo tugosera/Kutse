@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Kutse.Models
+namespace Kutse_App.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

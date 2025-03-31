@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
-namespace Kutse.Models
+namespace Kutse_App.Models
 {
     public class Guest
     {
-        [Required(ErrorMessage = "Sissesta nimi")]
-        public string Name { get; set; }
-        [Required(ErrorMessage = "Sissesta email")]
-        [RegularExpression(@".+\@.+\..+", ErrorMessage = "Valesti sissestatud email")]
-        public string Email { get; set; }
-        [Required(ErrorMessage = "Sissesta telefoni number")]
-        [RegularExpression(@"\+372.+", ErrorMessage = "Numbri alguses peab olema +372")]
-        public string Phone {  get; set; }
-        [Required(ErrorMessage = "Sissesta oma valik")]
+        public int Id { get; set; }
 
+        [Required(ErrorMessage = "Sisesta nimi")]
+        public string Nimi { get; set; }
+
+        [Required(ErrorMessage = "Sisesta email")]
+        [RegularExpression(@".+\@.+\..+", ErrorMessage = "Valesti sisestatud email")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Sisesta telefoni number")]
+        [RegularExpression(@"\+372.+", ErrorMessage = "Numbri alguses peal olema +372")]
+        public string Telefon { get; set; }
+
+        [Required(ErrorMessage = "Sisesta oma valik")]
         public bool? WillAttend { get; set; }
 
+        [Display(Name = "Pühad")]
+        public int? PühadId { get; set; }
+
+        public virtual Pühad Pühad { get; set; }
     }
 }
